@@ -97,3 +97,6 @@ posts.forEach((element) =>{
 
 });
 
+// creo il mio arrey per i like
+const like = [];
+
