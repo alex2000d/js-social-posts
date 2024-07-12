@@ -59,3 +59,23 @@ const posts = [
 
 // recupero il mio elemento dal dom
 let container_card = document.getElementById('container');
+// creo un ciclo che mi stampi le card nel dom
+posts.forEach((element) =>{
+    // faccio una destrutturazione
+    let {media, author, created, likes, content, id} = element;
+
+             
+
+
+});
+
+// creo il mio arrey per i like
+const like = [];
+
+// recupero il mio pulsante dal dom
+const likes = document.getElementById('like');
+likes.addEventListener('click', function(){
+
+
+    likes.classList.toggle('like-button--liked')
+})
