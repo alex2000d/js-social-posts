@@ -63,7 +63,7 @@ let container_card = document.getElementById('container');
 posts.forEach((element) =>{
     // faccio una destrutturazione
     let {media, author, created, likes, content, id} = element;
-
+    // mostro le mie card nel dom
     container_card.innerHTML += ` <div class="post">
     <div class="post__header">
         <div class="post-meta">                    
@@ -101,18 +101,26 @@ posts.forEach((element) =>{
 const like = [];
 
 // recupero il mio pulsante dal dom
-const likes = document.querySelectorAll('.js-like-button');
+const likes_button = document.querySelectorAll('.js-like-button');
 // recupero il mio counter like
 const likes__counter = document.querySelectorAll('.js-likes-counter')
 //  creo un ciclo per i pulsanti mi piace
-for(let i = 0; i < likes.length; i++){
-    let button = likes[i];
+for(let i = 0; i < likes_button.length; i++){
+    let button = likes_button[i];
 // faccio un evento click per il mio pulsante mi piace
     button.addEventListener('click', function (event) {
         // evito che al click del pulsante mi riporta all'inizio della pagina
         event.preventDefault();
         // aggiungo la classe al mio pulsante
        this.classList.add('like-button--liked')
+       let like_dom = likes__counter[i];
+         // recupero il numero dei miei mi piace
+       let likes = parseInt(like_dom.innerText);
+        //   inserisco il nuovo numero di mi piace nel dom
+       like_dom.innerText = likes + 1;
+        // inserisco l'id nel mio arrey 
+       like.push( i + 1);
+       console.log(like);
 })
 }
 
